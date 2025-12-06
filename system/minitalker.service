@@ -1,0 +1,16 @@
+[Unit]
+Description=Minitalker AI Service
+After=network.target
+
+[Service]
+User=shlok
+WorkingDirectory=/home/shlok/minitalker/ai_project
+ExecStart=/home/shlok/minitalker/venv/bin/python3 model_server.py
+Restart=always
+RestartSec=5
+
+# Needed to access internet & model files
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
