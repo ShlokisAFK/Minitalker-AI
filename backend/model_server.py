@@ -26,11 +26,6 @@ _ = model.generate(
 # Minitalker Personality Layer
 # --------------------------
 
-def apply_special_rules(prompt):
-    p = prompt.lower()
-
-    if "mahi" in p or "muhu" in p:
-        return "Oh you don’t wanna know that… that’s a secret 😉"
 
     if "your name" in p:
         return "I’m Minitalker — sarcastic, fast, and built by Shlok Singh."
