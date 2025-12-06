@@ -41,7 +41,9 @@ To ensure fast and stable performance, the model was updated to Falcon-RW-1B, a 
 
 Model Comparison
 Model	Parameters	Speed on Pi	Stability	Notes
-TinyLlama-1.1B-Chat	1.1B	❌ Slow	❌ Freezes	Too heavy for 4GB Pi
-Falcon-RW-1B	~1B	✅ Fast	✅ Stable	Ideal for CPU inference
+TinyLlama-1.1B-Chat	1.1B	
+❌ Slow	❌ Freezes	Too heavy for 4GB Pi
+Falcon-RW-1B	
+~1B	✅ Fast	✅ Stable	Ideal for CPU inference
 Result:
 Minitalker loads faster, never freezes, and responds smoothly while staying fully local.
