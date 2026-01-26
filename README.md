@@ -47,11 +47,11 @@ The project focuses on **stability**, **predictable performance**, and **long-te
 ## Architecture
 
 Browser
-↓
+->
 NGINX (Reverse Proxy)
-↓
+->
 Flask API
-↓
+->
 Local LLM (CPU inference)
 
 
