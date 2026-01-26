@@ -30,7 +30,8 @@ The project focuses on **stability**, **predictable performance**, and **long-te
 - Chat-style conversational UI  
 - Animated typing indicator  
 - Smooth message flow  
-- Mobile-friendly layout  
+- Mobile-friendly layout
+- https://server.defaultrpi.xyz/
 
 ---
 
@@ -86,7 +87,7 @@ The project initially used **TinyLlama-1.1B-Chat**, but testing on Raspberry Pi 
 - High RAM usage  
 - Occasional generation stalls  
 
-To improve real-world usability, the model was switched to **Falcon-RW-1B**, resulting in:
+To improve real-world usability, the model was switched to **qwen2.gguf**, resulting in:
 
 - Faster CPU inference  
 - Lower memory pressure  
