@@ -1,40 +1,92 @@
-Minitalker-AI
-Personal Local AI Assistant Running on Raspberry Pi
+<h1 align="center">Minitalker-AI</h1>
+<p align="center">
+Local AI assistant running entirely on a Raspberry Pi
+</p>
 
-Minitalker-AI is a lightweight, fully local AI assistant built using a Raspberry Pi 5, a fast Falcon-RW-1B LLM, a Flask backend, and a ChatGPT-style HTML frontend.
+<p align="center">
+  <img src="https://img.shields.io/badge/Local%20Inference-Yes-black" />
+  <img src="https://img.shields.io/badge/Raspberry%20Pi-5-black" />
+  <img src="https://img.shields.io/badge/LLM-Falcon--RW--1B-black" />
+  <img src="https://img.shields.io/badge/Backend-Flask-black" />
+</p>
 
-It is accessible through a custom domain using NGINX + Cloudflare, features a clean animated UI with typing indicators, auto-expanding input, and a custom-tuned personality.
+<hr/>
 
-Features
+<p align="center">
+A lightweight, fully local AI assistant designed for stability and continuous operation on low-power hardware.
+</p>
 
-Runs a 1B-parameter LLM locally on Raspberry Pi
+---
 
-Fast Flask API backend
+## Demo
 
-Animated gradient UI inspired by ChatGPT
+<p align="center">
+  <img src="demo.gif" width="800" />
+</p>
 
-Smooth chat bubbles + animated typing indicator
+<sub align="center">
+Chat interface running on-device with local inference
+</sub>
 
-Top-floating input bar (mobile friendly)
+---
 
-Fully responsive mobile layout
+## Overview
 
-Reverse-proxied behind NGINX + Cloudflare
+Minitalker-AI is a personal AI assistant built to run entirely on a Raspberry Pi 5 without relying on external inference APIs.
 
-Auto-starts on boot via systemd
+The system exposes a Flask-based API and serves a web-based chat interface inspired by modern conversational UIs. All inference happens locally, while NGINX and Cloudflare are used only for routing and public access.
 
-Custom AI personality (keyword-triggered)
+---
 
-Public access via your own domain
+## Architecture
 
-Model Architecture
+<p align="center">
+  <img src="architecture.png" width="700" />
+</p>
 
-Minitalker-AI originally used TinyLlama-1.1B-Chat, but testing on the Raspberry Pi 5 (4GB) showed:
+- Local LLM inference on Raspberry Pi  
+- Flask API for prompt handling  
+- Web-based chat frontend  
+- NGINX reverse proxy  
+- Cloudflare for DNS and HTTPS  
 
-slow load times
+---
 
-high RAM usage
+## Model Selection
 
-freezes during generation
+The project initially used TinyLlama-1.1B-Chat. Testing on Raspberry Pi 5 (4GB RAM) revealed performance limitations, including long load times and memory pressure.
 
-To ensure fast and stable performance, the model was updated to Falcon-RW-1B, a lightweight CPU-friendly model.
+The model was later replaced with Falcon-RW-1B to improve responsiveness and runtime stability on CPU-only hardware.
+
+This change significantly reduced latency and improved generation reliability.
+
+---
+
+## Features
+
+- Fully local language model inference  
+- Lightweight Flask backend  
+- Responsive chat interface  
+- Animated message flow and typing indicator  
+- Mobile-friendly layout  
+- Reverse-proxied with NGINX  
+- Public access through custom domain  
+- Auto-start on boot using systemd  
+- Custom personality logic  
+
+---
+
+## Why This Exists
+
+This project explores what is realistically possible when running modern language models on constrained hardware.
+
+The focus is not maximum model size, but reliability, simplicity, and local-first design.
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/ShlokisAFK/Minitalker-AI
+cd Minitalker-AI
+python app.py
