@@ -1,64 +1,100 @@
-<h1 align="center">Minitalker-AI</h1>
+# Minitalker-AI
+
 <p align="center">
-Local AI assistant running entirely on a Raspberry Pi
+  <strong>Local AI assistant running entirely on a Raspberry Pi</strong><br>
+  No cloud inference • No external APIs • Always-on
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Local%20Inference-Yes-black" />
-  <img src="https://img.shields.io/badge/Raspberry%20Pi-5-black" />
-  <img src="https://img.shields.io/badge/LLM-Falcon--RW--1B-black" />
-  <img src="https://img.shields.io/badge/Backend-Flask-black" />
+  <img src="https://img.shields.io/badge/Inference-Local--only-black">
+  <img src="https://img.shields.io/badge/Model-Falcon--RW--1B-blue">
+  <img src="https://img.shields.io/badge/Backend-Flask-lightgrey">
+  <img src="https://img.shields.io/badge/Hardware-Raspberry%20Pi%205-red">
 </p>
-
-<hr/>
-
-<p align="center">
-A lightweight, fully local AI assistant designed for stability and continuous operation on low-power hardware.
-</p>
-
----
-
-## Demo
-
-<p align="center">
-  <img src="demo.gif" width="800" />
-</p>
-
-<sub align="center">
-Chat interface running on-device with local inference
-</sub>
 
 ---
 
 ## Overview
 
-Minitalker-AI is a personal AI assistant built to run entirely on a Raspberry Pi 5 without relying on external inference APIs.
+**Minitalker-AI** is a fully local AI assistant designed to run continuously on low-power hardware.  
+It provides a browser-based chat interface backed by on-device language model inference, without relying on external APIs or cloud compute.
 
-The system exposes a Flask-based API and serves a web-based chat interface inspired by modern conversational UIs. All inference happens locally, while NGINX and Cloudflare are used only for routing and public access.
+The project focuses on **stability**, **predictable performance**, and **long-term reliability** rather than model size or novelty.
+
+---
+
+## Demo
+
+> Chat interface running locally with on-device inference
+
+- Chat-style conversational UI  
+- Animated typing indicator  
+- Smooth message flow  
+- Mobile-friendly layout  
+
+*(Demo media can be added here)*
+
+---
+
+## Design Goals
+
+- Local-first by default  
+- Low memory footprint  
+- Predictable latency  
+- Simple, debuggable architecture  
+- Designed for continuous uptime  
 
 ---
 
 ## Architecture
 
-<p align="center">
-  <img src="architecture.png" width="700" />
-</p>
+Browser
+↓
+NGINX (Reverse Proxy)
+↓
+Flask API
+↓
+Local LLM (CPU inference)
 
-- Local LLM inference on Raspberry Pi  
-- Flask API for prompt handling  
-- Web-based chat frontend  
-- NGINX reverse proxy  
-- Cloudflare for DNS and HTTPS  
+
+### Components
+
+- **Language Model**
+  - Runs fully on Raspberry Pi CPU
+  - No GPU required
+  - Optimized for constrained hardware
+
+- **Backend**
+  - Flask-based REST API
+  - Handles prompt routing and response streaming
+
+- **Frontend**
+  - HTML / CSS / JavaScript
+  - Chat-style interface inspired by modern conversational apps
+  - Responsive across desktop and mobile
+
+- **Networking**
+  - NGINX for reverse proxy
+  - Cloudflare for DNS and HTTPS only
+  - No inference leaves the device
 
 ---
 
 ## Model Selection
 
-The project initially used TinyLlama-1.1B-Chat. Testing on Raspberry Pi 5 (4GB RAM) revealed performance limitations, including long load times and memory pressure.
+The project initially used **TinyLlama-1.1B-Chat**, but testing on Raspberry Pi 5 (4GB) revealed:
 
-The model was later replaced with Falcon-RW-1B to improve responsiveness and runtime stability on CPU-only hardware.
+- Slow load times  
+- High RAM usage  
+- Occasional generation stalls  
 
-This change significantly reduced latency and improved generation reliability.
+To improve real-world usability, the model was switched to **Falcon-RW-1B**, resulting in:
+
+- Faster CPU inference  
+- Lower memory pressure  
+- Improved stability during long sessions  
+
+This change significantly improved responsiveness and reliability.
 
 ---
 
@@ -66,27 +102,46 @@ This change significantly reduced latency and improved generation reliability.
 
 - Fully local language model inference  
 - Lightweight Flask backend  
-- Responsive chat interface  
-- Animated message flow and typing indicator  
-- Mobile-friendly layout  
+- Modern chat interface  
+- Smooth message animations and typing indicator  
+- Mobile-friendly responsive layout  
 - Reverse-proxied with NGINX  
+- HTTPS via Cloudflare  
 - Public access through custom domain  
 - Auto-start on boot using systemd  
 - Custom personality logic  
 
 ---
 
-## Why This Exists
+## Why This Project Exists
 
-This project explores what is realistically possible when running modern language models on constrained hardware.
+Most AI projects assume cloud compute, large GPUs, or paid APIs.  
+Minitalker-AI explores a different direction:
 
-The focus is not maximum model size, but reliability, simplicity, and local-first design.
+> What is realistically possible with local AI on constrained hardware?
+
+The result is a system that values **simplicity, reliability, and control** over scale.
 
 ---
 
 ## Running Locally
 
-```bash
-git clone https://github.com/ShlokisAFK/Minitalker-AI
-cd Minitalker-AI
-python app.py
+- Designed to run continuously once configured  
+- Automatically starts on boot  
+- Recovers cleanly after restarts  
+- No external services required for inference  
+
+---
+
+## Status
+
+- Actively maintained  
+- Focused on refinement and stability  
+- Built as a long-term personal system  
+
+---
+
+## Author
+
+**Shlok Singh**  
+GitHub: https://github.com/ShlokisAFK
