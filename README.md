@@ -32,8 +32,6 @@ The project focuses on **stability**, **predictable performance**, and **long-te
 - Smooth message flow  
 - Mobile-friendly layout  
 
-*(Demo media can be added here)*
-
 ---
 
 ## Design Goals
@@ -135,7 +133,6 @@ The result is a system that values **simplicity, reliability, and control** over
 
 ## Status
 
-- Actively maintained  
 - Focused on refinement and stability  
 - Built as a long-term personal system  
 
